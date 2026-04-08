@@ -1,0 +1,111 @@
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.footer {
+  background-color: var(--color-background-alt);
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ---- Descuento ---- */
+.discount {
+  padding-bottom: 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.discountText {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+/* ---- Email form ---- */
+.emailForm {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.emailLabel {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.emailInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  width: 100%;
+  padding: 4px 0;
+  caret-color: var(--color-text);
+}
+
+.emailInput::placeholder {
+  color: transparent;
+}
+
+/* ---- Nav ---- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 0 0;
+}
+
+.navLinks,
+.socialLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.socialLinks {
+  text-align: right;
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: opacity 160ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .navLink:hover {
+    opacity: 0.5;
+  }
+}
+
+/* ---- Logo ---- */
+.logoRow {
+  text-align: center;
+  padding-top: 24px;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--color-primary);
+}

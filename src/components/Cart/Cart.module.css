@@ -1,0 +1,223 @@
+/* ============================================================
+   Cart — slide-over desde la derecha
+   ============================================================ */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 201;
+  width: min(360px, 100vw);
+  background-color: var(--color-background-alt);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Close ---- */
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--color-text);
+  padding: 4px;
+  line-height: 1;
+  transition: opacity 160ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .closeBtn:hover {
+    opacity: 0.5;
+  }
+}
+
+/* ---- Items ---- */
+.items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 56px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.empty {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ---- Item ---- */
+.item {
+  display: grid;
+  grid-template-columns: 72px 1fr 24px;
+  gap: 12px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.itemImage {
+  position: relative;
+  width: 72px;
+  height: 72px;
+}
+
+.image {
+  object-fit: contain;
+  object-position: center;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.itemName {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.itemMeta {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.itemPrice {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-top: 2px;
+}
+
+/* ---- Quantity ---- */
+.qty {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.qtyBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--color-text);
+  padding: 0;
+  line-height: 1;
+  transition: opacity 160ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .qtyBtn:hover {
+    opacity: 0.5;
+  }
+}
+
+.qtyValue {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text);
+  min-width: 12px;
+  text-align: center;
+}
+
+/* ---- Remove ---- */
+.removeBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  padding: 0;
+  margin-top: 2px;
+  transition: opacity 160ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .removeBtn:hover {
+    opacity: 0.5;
+  }
+}
+
+/* ---- Footer ---- */
+.footer {
+  padding: 16px;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.totalLabel {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.totalValue {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.checkoutBtn {
+  width: 100%;
+  height: 48px;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: opacity 160ms ease-out, transform 160ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .checkoutBtn:hover {
+    opacity: 0.85;
+  }
+}
+
+.checkoutBtn:active {
+  transform: scale(0.99);
+}
