@@ -53,13 +53,13 @@ function HomeHeader({ openCart, openMenu }: HeaderProps) {
     const onScroll = () => setCompact(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const hero = document.getElementById("hero");
-    if (hero) {
+    const sentinel = document.getElementById("content-start");
+    if (sentinel) {
       const observer = new IntersectionObserver(
-        ([entry]) => setOpaque(!entry.isIntersecting),
-        { threshold: 0 }
+        ([entry]) => setOpaque(entry.boundingClientRect.top <= 0),
+        { threshold: 0, rootMargin: "0px 0px 0px 0px" }
       );
-      observer.observe(hero);
+      observer.observe(sentinel);
       return () => {
         window.removeEventListener("scroll", onScroll);
         observer.disconnect();

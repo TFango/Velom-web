@@ -75,3 +75,35 @@
     opacity: 0.5;
   }
 }
+
+/* ---- Tablet+ layout horizontal ---- */
+@media (min-width: 768px) {
+  .section {
+    padding: 80px 48px;
+  }
+
+  .inner {
+    max-width: 1000px;
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+  }
+
+  .imageWrapper {
+    width: 340px;
+    flex-shrink: 0;
+  }
+
+  .text {
+    flex: 1;
+    gap: 10px;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .sub {
+    font-size: 0.95rem;
+  }
+}

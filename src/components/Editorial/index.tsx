@@ -10,7 +10,7 @@ export default function Editorial() {
     <section className={styles.section}>
       <div className={styles.imageWrapper}>
         <Image
-          src="/images/gafas.png"
+          src="/images/gafas.jpg"
           alt="Hombre sosteniendo gafas de sol"
           fill
           sizes="(max-width: 768px) 100vw, 50vw"

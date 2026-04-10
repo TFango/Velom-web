@@ -1,0 +1,105 @@
+/* ============================================================
+   Shop — full width, filtros arriba
+   ============================================================ */
+
+.page {
+  min-height: 100dvh;
+  padding: 0;
+}
+
+/* ---- Top bar fija ---- */
+.topBar {
+  position: fixed;
+  top: 60px; /* debajo del header */
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
+  height: 44px;
+}
+
+/* ---- Filter bar ---- */
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.filterBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  opacity: 0.35;
+  padding: 0 20px 0 0;
+  height: 44px;
+  position: relative;
+  transition: opacity 200ms ease-out;
+  white-space: nowrap;
+}
+
+.filterBtn[data-active="true"] {
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .filterBtn:hover {
+    opacity: 0.65;
+  }
+  .filterBtn[data-active="true"]:hover {
+    opacity: 1;
+  }
+}
+
+.subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+/* ---- Grid ---- */
+.grid {
+  padding: 104px 40px 80px; /* 60px header + 44px topbar */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px 24px;
+  align-content: start;
+  margin-top: 20px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .topBar {
+    top: 56px;
+    padding: 0 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    gap: 24px;
+  }
+
+  .subtitle {
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  .grid {
+    padding: 100px 20px 60px;
+    grid-template-columns: 1fr;
+    gap: 32px 0;
+  }
+}

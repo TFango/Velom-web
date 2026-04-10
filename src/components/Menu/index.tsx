@@ -7,7 +7,7 @@ import styles from "./Menu.module.css";
 
 const links = [
   { href: "/", label: "Inicio" },
-  { href: "/product", label: "Shop" },
+  { href: "/shop", label: "Shop" },
   { href: "/product", label: "Producto" },
 ];
 

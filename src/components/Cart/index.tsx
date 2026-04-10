@@ -6,7 +6,7 @@ import { useCart } from "@/context/CartContext";
 import styles from "./Cart.module.css";
 
 export default function Cart() {
-  const { items, isOpen, closeCart, updateQuantity, total } = useCart();
+  const { items, isOpen, closeCart, updateQuantity, removeItem, total } = useCart();
 
   const formattedTotal = new Intl.NumberFormat("es-AR", {
     style: "currency",
@@ -36,10 +36,13 @@ export default function Cart() {
             exit={{ x: "100%" }}
             transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
           >
-            {/* Close */}
-            <button className={styles.closeBtn} onClick={closeCart} aria-label="Cerrar carrito">
-              ✕
-            </button>
+            {/* Header */}
+            <div className={styles.header}>
+              <span className={styles.headerTitle}>Tu carrito</span>
+              <button className={styles.closeBtn} onClick={closeCart} aria-label="Cerrar carrito">
+                <CloseIcon />
+              </button>
+            </div>
 
             {/* Items */}
             <div className={styles.items}>
@@ -60,37 +63,43 @@ export default function Cart() {
                           src={item.image}
                           alt={item.name}
                           fill
-                          sizes="72px"
+                          sizes="88px"
                           className={styles.image}
                         />
                       </div>
                       <div className={styles.itemInfo}>
-                        <p className={styles.itemName}>{item.name.toUpperCase()}</p>
+                        <p className={styles.itemName}>{item.name}</p>
                         <p className={styles.itemMeta}>
                           {item.color} · {item.size}
                         </p>
                         <p className={styles.itemPrice}>{formattedPrice}</p>
-                        <div className={styles.qty}>
+                        <div className={styles.itemActions}>
+                          <div className={styles.qty}>
+                            <button
+                              className={styles.qtyBtn}
+                              onClick={() => updateQuantity(item.id, -1)}
+                              aria-label="Reducir cantidad"
+                            >
+                              −
+                            </button>
+                            <span className={styles.qtyValue}>{item.quantity}</span>
+                            <button
+                              className={styles.qtyBtn}
+                              onClick={() => updateQuantity(item.id, 1)}
+                              aria-label="Aumentar cantidad"
+                            >
+                              +
+                            </button>
+                          </div>
                           <button
-                            className={styles.qtyBtn}
-                            onClick={() => updateQuantity(item.id, -1)}
-                            aria-label="Reducir cantidad"
+                            className={styles.removeBtn}
+                            onClick={() => removeItem(item.id)}
+                            aria-label="Eliminar producto"
                           >
-                            -
-                          </button>
-                          <span className={styles.qtyValue}>{item.quantity}</span>
-                          <button
-                            className={styles.qtyBtn}
-                            onClick={() => updateQuantity(item.id, 1)}
-                            aria-label="Aumentar cantidad"
-                          >
-                            +
+                            Eliminar
                           </button>
                         </div>
                       </div>
-                      <span className={styles.removeBtn}>
-                        <TrashIcon />
-                      </span>
                     </div>
                   );
                 })
@@ -100,10 +109,11 @@ export default function Cart() {
             {/* Footer */}
             <div className={styles.footer}>
               <div className={styles.totalRow}>
-                <span className={styles.totalLabel}>Total</span>
+                <span className={styles.totalLabel}>Subtotal</span>
                 <span className={styles.totalValue}>{formattedTotal}</span>
               </div>
-              <button className={styles.checkoutBtn}>Comprar</button>
+              <p className={styles.shippingNote}>Envío calculado al finalizar la compra</p>
+              <button className={styles.checkoutBtn}>Finalizar compra</button>
             </div>
           </motion.div>
         </>
@@ -112,13 +122,10 @@ export default function Cart() {
   );
 }
 
-function TrashIcon() {
+function CloseIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="3 6 5 6 21 6" />
-      <path d="M19 6l-1 14H6L5 6" />
-      <path d="M10 11v6M14 11v6" />
-      <path d="M9 6V4h6v2" />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+      <path d="M18 6L6 18M6 6l12 12" />
     </svg>
   );
 }

@@ -1,8 +1,10 @@
 .hero {
-  position: relative;
+  position: sticky;
+  top: 0;
   height: 100dvh;
   min-height: 600px;
   overflow: hidden;
+  z-index: 0;
 }
 
 .image {
@@ -31,6 +33,12 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 0 60px 72px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 24px 48px;
+  }
 }
 
 .title {

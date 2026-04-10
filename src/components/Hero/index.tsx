@@ -7,7 +7,7 @@ export default function Hero() {
     <section id="hero" className={styles.hero}>
 
       <Image
-        src="/images/hero.png"
+        src="/images/hero.jpg"
         alt="Nueva colección VELOM"
         fill
         priority
