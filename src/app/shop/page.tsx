@@ -34,7 +34,6 @@ export default function ShopPage() {
             </button>
           ))}
         </nav>
-        <p className={styles.subtitle}>{filtered.length} productos</p>
       </div>
 
       {/* Grid */}
